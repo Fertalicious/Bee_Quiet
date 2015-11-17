@@ -19,4 +19,14 @@ public class ImportActivity extends AppCompatActivity {
 
 
     }
+
+    public void clickCalendar(View v)
+    {
+        // Import from calendar clicked
+    }
+
+    public void clickExternal(View v)
+    {
+        // Import from external schedule clicked
+    }
 }

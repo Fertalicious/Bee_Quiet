@@ -17,7 +17,8 @@
         android:id="@+id/buttonCalendar"
         android:layout_above="@+id/buttonSchedule"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="89dp" />
+        android:layout_marginBottom="89dp"
+        android:onClick="clickCalendar" />
 
     <Button
         android:layout_width="wrap_content"
@@ -25,5 +26,6 @@
         android:text="IMPORT FROM EXTERNAL SCHEDULE"
         android:id="@+id/buttonSchedule"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="clickExternal" />
 </RelativeLayout>
