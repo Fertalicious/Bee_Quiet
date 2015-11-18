@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.beequiet.ViewActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WEEKLY"
+        android:id="@+id/buttonWeekly"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MONTHLY"
+        android:id="@+id/buttonMonthly"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IMPORT"
+        android:id="@+id/buttonImport"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="clickImport" />
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height= "fill_parent"
+        android:stretchColumns="*"
+        android:layout_below="@+id/buttonWeekly"
+        android:layout_toStartOf="@+id/buttonMonthly"
+        android:layout_toLeftOf="@id/buttonMonthly"
+        android:layout_alignRight="@+id/buttonWeekly"
+        android:layout_alignEnd="@+id/buttonWeekly"
+        android:id="@+id/tableLayout">
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Mon" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/mondayButton" />
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Tues" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/tuesdayButton" />
+
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Wed" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/wednesdayButton" />
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Thur" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/thursdayButton" />
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Fri" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/fridayButton" />
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Sat" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/saturdayButton" />
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Sun" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/sundayButton" />
+        </TableRow>
+    </TableLayout>
+
+
+</RelativeLayout>
