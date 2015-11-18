@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Bee Quiet");
         //test 2 russ
+        //how is it going
     }
 
     public void clickView(View v){
