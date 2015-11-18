@@ -32,6 +32,7 @@ public class WeeklyActivity extends AppCompatActivity {
         listClick();
     }
     private void addOption() {
+        //not sure what to do for 15 , 30 , 45
         option.add(0, "12");
         option.add(1, "1");
         option.add(2, "2");
