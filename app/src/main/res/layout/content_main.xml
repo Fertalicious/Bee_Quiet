@@ -38,14 +38,13 @@
         android:layout_centerHorizontal="true"
         android:onClick="clickView" />
 
-    <Button
+    <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DEACTIVATE"
-        android:id="@+id/buttonDeactivate"
-        android:layout_marginTop="53dp"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton"
+        android:layout_marginTop="46dp"
         android:layout_below="@+id/buttonView"
-        android:layout_centerHorizontal="true"
-        android:onClick="clickDeactivate" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

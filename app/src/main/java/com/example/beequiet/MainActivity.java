@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         //test 2 russ
         //how is it going
         //one more test
+
     }
 
     public void clickView(View v){
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickHour(View v){
         // Silent for an hour, set the text of the button to current amount of time left
+
     }
 
     public void clickDeactivate(View v){
