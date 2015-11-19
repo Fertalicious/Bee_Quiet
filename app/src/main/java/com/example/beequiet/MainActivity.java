@@ -7,11 +7,28 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
+import android.content.Context;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+
+
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button btnHour;
+    int timeLeft;
+    MyReceiver myReceiver;
+    private class MyReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context arg0, Intent arg1) {
+            timeLeft = arg1.getIntExtra("timeLeft", 0);
+            updateUI(timeLeft);
+
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +37,37 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Bee Quiet");
-        //test 2 russ
-        //how is it going
-        //one more test
+        btnHour = (Button) findViewById(R.id.buttonHour);
 
+    }
+
+    @Override
+    protected void onStart() {
+        //Register BroadcastReceiver
+        //to receive event from our service
+        myReceiver = new MyReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(SilentHour.MY_ACTION);
+        registerReceiver(myReceiver, intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+    }
+
+    private void updateUI(int time) {
+        if(time == 0){
+            stopService();
+            // enable button
+            btnHour.setText("QUIET FOR AN HOUR");
+            btnHour.setEnabled(true);
+        }
+        else {
+            btnHour.setText(Integer.toString(time));
+        }
     }
 
     public void clickView(View v){
@@ -33,13 +77,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickHour(View v){
         // Silent for an hour, set the text of the button to current amount of time left
-
+        startService();
+        // disable button
+        btnHour.setEnabled(false);
     }
 
     public void clickDeactivate(View v){
         // Stop the effects of the app or vice versa
 
     }
+
+    // Method to start the service
+    public void startService() {
+        startService(new Intent(getBaseContext(), SilentHour.class));
+    }
+
+    // Method to stop the service
+    public void stopService() {
+        stopService(new Intent(getBaseContext(), SilentHour.class));
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(myReceiver);
+        super.onStop();
+    }
+
 
 /*
     @Override
