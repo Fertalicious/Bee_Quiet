@@ -84,6 +84,9 @@ public class WeeklyActivity extends AppCompatActivity {
         checkStart = false;
         dayOfWeek = "Monday";//Need to access actual day of week, for now default to monday
 
+        checkFileExist();
+
+        //writeDaytoFile();// if you want to reset your file use this
         //Sets up the list view and arraylist to be used
         lv = (ListView)findViewById(R.id.listView);
         option = new ArrayList<String>();
@@ -208,16 +211,19 @@ public class WeeklyActivity extends AppCompatActivity {
         });
     }
 
+    //get day of the week from xml
     public void setDayOfWeek(View v)
     {
         dayOfWeek = v.getTag().toString();// will return the string dayofWeek
     }
+
     //Will activate when clicked for the first time, or after end block
     public void addBlock(String dayOfWeek, int hour){
         chooseMin(hour);
     }
 
 
+    //gets the minute from the hour selected
     public void chooseMin(final int hour){
 
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -226,7 +232,7 @@ public class WeeklyActivity extends AppCompatActivity {
                 .setView(layout);
         alert.setTitle("Set Time");
 
-        // Set a seekbar view to get user input
+        // Set a seekbar(slider) view to get user input
         alert.setMessage(dayOfWeek + " " + String.valueOf(hour) + " : 00");
 
         alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
@@ -237,7 +243,7 @@ public class WeeklyActivity extends AppCompatActivity {
                 else
                 {
                     checkStart = false;
-                    //writeTimeToFile();
+                    writeFile(readFile());
                 }
                 Context context = getApplicationContext();
                 int duration = Toast.LENGTH_SHORT;
@@ -267,7 +273,6 @@ public class WeeklyActivity extends AppCompatActivity {
         input.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 00;
 
-
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
@@ -284,25 +289,39 @@ public class WeeklyActivity extends AppCompatActivity {
                 alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
 
                 if (!checkStart)
-                    startTime = hour + " : " + progress;
+                    startTime = hour + ":" + progress;
                 else
-                    endTime = hour + " : " + progress;
+                    endTime = hour + ":" + progress;
                 //Toast.makeText(getApplicationContext(), "Stopped tracking seekbar: " + startTime + " " + endTime, Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
-    public void writeTimeToFile(){
+    //initialization of file
+    public void checkFileExist(){
+       try{ FileInputStream fis = null;
+        fis = openFileInput("time.txt");
+       // File file = new File("time.txt");
+      // boolean exists = file.isFile();
+        if(fis == null)
+            writeDaytoFile();}
+       catch (Exception e){
+
+       }
+    }
+
+    //write the days of the week to a file called time.txt, assuming
+    //user doesn't have it (opened this activity to create)
+    public void writeDaytoFile(){
         try {
             String nodeValue = "Monday Tuesday Wednesday Thursday Friday Saturday Sunday";
-            OutputStreamWriter writer = new OutputStreamWriter(
-                    new FileOutputStream("time.txt", true), "UTF-8");
-
-            BufferedWriter BR = new BufferedWriter(writer);
+            FileOutputStream writer = openFileOutput("time.txt", Context.MODE_ENABLE_WRITE_AHEAD_LOGGING);
+            BufferedWriter BR = new BufferedWriter(new OutputStreamWriter(writer));
             String[] week = nodeValue.split(" ");
             for (String day: week) {
                 BR.write(day);
+                BR.newLine();
                 BR.newLine();
             }
             BR.close();
@@ -312,14 +331,13 @@ public class WeeklyActivity extends AppCompatActivity {
         }
     }
 
-
-    //Read from file, will be used later maybe
-    private String readFromFile() {
+    //read from file, and then write
+    private String readFile() {
 
         String ret = "";
 
         try {
-            InputStream inputStream = openFileInput("config.txt");
+            FileInputStream inputStream = openFileInput("time.txt");
 
             if ( inputStream != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -328,7 +346,7 @@ public class WeeklyActivity extends AppCompatActivity {
                 StringBuilder stringBuilder = new StringBuilder();
 
                 while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    stringBuilder.append(receiveString);
+                    stringBuilder.append(receiveString + "\n");
                 }
 
                 inputStream.close();
@@ -340,7 +358,41 @@ public class WeeklyActivity extends AppCompatActivity {
         } catch (IOException e) {
             Log.e("login activity", "Can not read file: " + e.toString());
         }
-
+        Log.d("TABLE: \n", ret);
         return ret;
+    }
+
+    //writes the updated time into the table
+    public void writeFile(String ret){
+
+        String[] line = ret.split("\n");
+
+        Log.d("write file","am i writing " + line[0]);
+        //loop through to find correct date
+        for (int i = 0; i < line.length; i++) {
+            String token[] = line[i].split(" ");
+
+            if(token[0].equals(dayOfWeek)) {
+                line[i] += " \"" + startTime + "-" + endTime + "\"";
+                Log.d("Correct week updated?",line[i]);
+            }
+            //this will look like Monday "2:00-4:45" "5:00-6:00"
+            //in the text file
+        }
+        Log.d("write file","am i writing " + line[0]);
+        try {
+
+            FileOutputStream writer = openFileOutput("time.txt", Context.MODE_ENABLE_WRITE_AHEAD_LOGGING);
+            BufferedWriter BR = new BufferedWriter(new OutputStreamWriter(writer));
+            //loop through to find correct date
+            for (int i = 0; i < line.length; i++) {
+                BR.write(line[i]);
+                BR.newLine();
+            }
+            BR.close();
+        }
+        catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
     }
 }
