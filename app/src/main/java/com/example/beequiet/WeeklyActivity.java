@@ -75,7 +75,7 @@ public class WeeklyActivity extends AppCompatActivity {
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
-
+    //for setting time
     private void listClick() {
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
