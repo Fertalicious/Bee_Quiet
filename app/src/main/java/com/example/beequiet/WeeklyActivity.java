@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,12 +13,20 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 public class WeeklyActivity extends AppCompatActivity {
 
+    //Uses a listview to contain the hours
     ListView lv;
     ArrayList<String> option;
     public static ArrayAdapter<String> adapter;
+
+    //flag for checking if start has been clicked
+    boolean checkStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,9 @@ public class WeeklyActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        checkStart = false;
+
+        //Sets up the list view and arraylist to be used
         lv = (ListView)findViewById(R.id.listView);
         option = new ArrayList<String>();
         addOption();
@@ -65,11 +77,12 @@ public class WeeklyActivity extends AppCompatActivity {
     }
 
     private void listClick() {
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
+                        Log.d("Button Test", "12am is being pressed");
                         break;
                     case 1:
                         break;
@@ -120,8 +133,20 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 24:
                         break;
                 }
+
+                return false;
             }
         });
+    }
+
+    //Will activate when clicked for the first time, or after end block
+    public void addStartBlock(){
+
+    }
+
+    //Will activate after user specified a start block
+    public void addEndBlcok(){
+
     }
 
 
