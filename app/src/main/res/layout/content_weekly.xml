@@ -52,44 +52,44 @@
             android:layout_weight="1"
             android:gravity="center">
             <Button android:text="Mon" android:layout_width="fill_parent" android:layout_height="fill_parent"
-                android:id="@+id/mondayButton" />
+                android:id="@+id/mondayButton" android:onClick="setDayOfWeek" android:tag="Monday" />
         </TableRow>
         <TableRow
             android:layout_weight="1"
             android:gravity="center">
             <Button android:text="Tues" android:layout_width="fill_parent" android:layout_height="fill_parent"
-                android:id="@+id/tuesdayButton" />
+                android:id="@+id/tuesdayButton" android:onClick="setDayOfWeek" android:tag="Tuesday"/>
 
         </TableRow>
         <TableRow
             android:layout_weight="1"
             android:gravity="center">
             <Button android:text="Wed" android:layout_width="fill_parent" android:layout_height="fill_parent"
-                android:id="@+id/wednesdayButton" />
+                android:id="@+id/wednesdayButton" android:onClick="setDayOfWeek" android:tag="Wednesday" />
         </TableRow>
         <TableRow
             android:layout_weight="1"
             android:gravity="center">
             <Button android:text="Thur" android:layout_width="fill_parent" android:layout_height="fill_parent"
-                android:id="@+id/thursdayButton" />
+                android:id="@+id/thursdayButton" android:onClick="setDayOfWeek" android:tag="Thursday"/>
         </TableRow>
         <TableRow
             android:layout_weight="1"
             android:gravity="center">
             <Button android:text="Fri" android:layout_width="fill_parent" android:layout_height="fill_parent"
-                android:id="@+id/fridayButton" />
+                android:id="@+id/fridayButton" android:onClick="setDayOfWeek" android:tag="Friday"/>
         </TableRow>
         <TableRow
             android:layout_weight="1"
             android:gravity="center">
             <Button android:text="Sat" android:layout_width="fill_parent" android:layout_height="fill_parent"
-                android:id="@+id/saturdayButton" />
+                android:id="@+id/saturdayButton" android:onClick="setDayOfWeek" android:tag="Saturday"/>
         </TableRow>
         <TableRow
             android:layout_weight="1"
             android:gravity="center">
             <Button android:text="Sun" android:layout_width="fill_parent" android:layout_height="fill_parent"
-                android:id="@+id/sundayButton" />
+                android:id="@+id/sundayButton" android:onClick="setDayOfWeek" android:tag="Sunday"/>
         </TableRow>
     </TableLayout>
 
