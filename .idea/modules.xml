@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Bee_Quiet-ver2.iml" filepath="$PROJECT_DIR$/Bee_Quiet-ver2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bee_Quiet.iml" filepath="$PROJECT_DIR$/Bee_Quiet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

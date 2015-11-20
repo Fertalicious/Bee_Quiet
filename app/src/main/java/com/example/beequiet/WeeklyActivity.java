@@ -1,16 +1,58 @@
 package com.example.beequiet;
 
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.IntentSender;
+import android.content.ServiceConnection;
+import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.UserHandle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
@@ -27,6 +69,8 @@ public class WeeklyActivity extends AppCompatActivity {
 
     //flag for checking if start has been clicked
     boolean checkStart;
+    String startTime, endTime;
+    String dayOfWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +79,10 @@ public class WeeklyActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        startTime = "";
+        endTime = "";
         checkStart = false;
+        dayOfWeek = "Monday";//Need to access actual day of week, for now default to monday
 
         //Sets up the list view and arraylist to be used
         lv = (ListView)findViewById(R.id.listView);
@@ -69,13 +116,13 @@ public class WeeklyActivity extends AppCompatActivity {
         option.add(21, "9");
         option.add(22, "10");
         option.add(23, "11");
-        option.add(24, "12");
 
         adapter = new ArrayAdapter<String>(this, R.layout.list_view, option);
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
-    //for setting time
+
+    //for setting pressing time
     private void listClick() {
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -83,54 +130,76 @@ public class WeeklyActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         Log.d("Button Test", "12am is being pressed");
+                        addBlock(dayOfWeek,0);
                         break;
                     case 1:
+                        addBlock(dayOfWeek,1);
                         break;
                     case 2:
+                        addBlock(dayOfWeek,2);
                         break;
                     case 3:
+                        addBlock(dayOfWeek,3);
                         break;
                     case 4:
+                        addBlock(dayOfWeek,4);
                         break;
                     case 5:
+                        addBlock(dayOfWeek,5);
                         break;
                     case 6:
+                        addBlock(dayOfWeek,6);
                         break;
                     case 7:
+                        addBlock(dayOfWeek,7);
                         break;
                     case 8:
+                        addBlock(dayOfWeek,8);
                         break;
                     case 9:
+                        addBlock(dayOfWeek,9);
                         break;
                     case 10:
+                        addBlock(dayOfWeek,10);
                         break;
                     case 11:
+                        addBlock(dayOfWeek,11);
                         break;
                     case 12:
+                        addBlock(dayOfWeek,12);
                         break;
                     case 13:
+                        addBlock(dayOfWeek,13);
                         break;
                     case 14:
+                        addBlock(dayOfWeek,14);
                         break;
                     case 15:
+                        addBlock(dayOfWeek,15);
                         break;
                     case 16:
+                        addBlock(dayOfWeek,16);
                         break;
                     case 17:
+                        addBlock(dayOfWeek,17);
                         break;
                     case 18:
+                        addBlock(dayOfWeek,18);
                         break;
                     case 19:
+                        addBlock(dayOfWeek,19);
                         break;
                     case 20:
+                        addBlock(dayOfWeek,20);
                         break;
                     case 21:
+                        addBlock(dayOfWeek,21);
                         break;
                     case 22:
+                        addBlock(dayOfWeek,22);
                         break;
                     case 23:
-                        break;
-                    case 24:
+                        addBlock(dayOfWeek,23);
                         break;
                 }
 
@@ -139,15 +208,139 @@ public class WeeklyActivity extends AppCompatActivity {
         });
     }
 
+    public void setDayOfWeek(View v)
+    {
+        dayOfWeek = v.getTag().toString();// will return the string dayofWeek
+    }
     //Will activate when clicked for the first time, or after end block
-    public void addStartBlock(){
-
-    }
-
-    //Will activate after user specified a start block
-    public void addEndBlcok(){
-
+    public void addBlock(String dayOfWeek, int hour){
+        chooseMin(hour);
     }
 
 
+    public void chooseMin(final int hour){
+
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.android_seekbar_dialog, (ViewGroup) findViewById(R.id.your_dialog_root_element));
+        final AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setView(layout);
+        alert.setTitle("Set Time");
+
+        // Set a seekbar view to get user input
+        alert.setMessage(dayOfWeek + " " + String.valueOf(hour) + " : 00");
+
+        alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //swap checkStart
+                if (!checkStart)
+                    checkStart = true;
+                else
+                {
+                    checkStart = false;
+                    //writeTimeToFile();
+                }
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, "Time Set: " + startTime + " " + endTime, duration);
+                toast.show();
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Context context = getApplicationContext();
+                CharSequence text = "Cancelled Block to be added";
+                int duration = Toast.LENGTH_SHORT;
+                if (!checkStart)
+                    startTime = "";
+                else
+                    endTime = "";
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+        });
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.show();
+        final SeekBar input = (SeekBar)layout.findViewById(R.id.seekBar1);
+
+
+        input.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progress = 00;
+
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
+                progress = progresValue;
+                alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
+
+                if (!checkStart)
+                    startTime = hour + " : " + progress;
+                else
+                    endTime = hour + " : " + progress;
+                //Toast.makeText(getApplicationContext(), "Stopped tracking seekbar: " + startTime + " " + endTime, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    public void writeTimeToFile(){
+        try {
+            String nodeValue = "Monday Tuesday Wednesday Thursday Friday Saturday Sunday";
+            OutputStreamWriter writer = new OutputStreamWriter(
+                    new FileOutputStream("time.txt", true), "UTF-8");
+
+            BufferedWriter BR = new BufferedWriter(writer);
+            String[] week = nodeValue.split(" ");
+            for (String day: week) {
+                BR.write(day);
+                BR.newLine();
+            }
+            BR.close();
+        }
+        catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
+    }
+
+
+    //Read from file, will be used later maybe
+    private String readFromFile() {
+
+        String ret = "";
+
+        try {
+            InputStream inputStream = openFileInput("config.txt");
+
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    stringBuilder.append(receiveString);
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+            }
+        }
+        catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+        }
+
+        return ret;
+    }
 }
