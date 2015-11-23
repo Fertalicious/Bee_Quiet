@@ -16,7 +16,8 @@ public class ViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Bee Quiet");
+        getSupportActionBar().setTitle(" ");
+        toolbar.setBackground(getDrawable(R.drawable.beequietbanner));
     }
 
     public void clickImport(View v){
