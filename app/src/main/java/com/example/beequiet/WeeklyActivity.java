@@ -78,6 +78,8 @@ public class WeeklyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weekly);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(" ");
+        toolbar.setBackground(getDrawable(R.drawable.beequietbanner));
 
         startTime = "";
         endTime = "";
@@ -133,76 +135,76 @@ public class WeeklyActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         Log.d("Button Test", "12am is being pressed");
-                        addBlock(dayOfWeek,0);
+                        addBlock(dayOfWeek, 0);
                         break;
                     case 1:
-                        addBlock(dayOfWeek,1);
+                        addBlock(dayOfWeek, 1);
                         break;
                     case 2:
-                        addBlock(dayOfWeek,2);
+                        addBlock(dayOfWeek, 2);
                         break;
                     case 3:
-                        addBlock(dayOfWeek,3);
+                        addBlock(dayOfWeek, 3);
                         break;
                     case 4:
-                        addBlock(dayOfWeek,4);
+                        addBlock(dayOfWeek, 4);
                         break;
                     case 5:
-                        addBlock(dayOfWeek,5);
+                        addBlock(dayOfWeek, 5);
                         break;
                     case 6:
-                        addBlock(dayOfWeek,6);
+                        addBlock(dayOfWeek, 6);
                         break;
                     case 7:
-                        addBlock(dayOfWeek,7);
+                        addBlock(dayOfWeek, 7);
                         break;
                     case 8:
-                        addBlock(dayOfWeek,8);
+                        addBlock(dayOfWeek, 8);
                         break;
                     case 9:
-                        addBlock(dayOfWeek,9);
+                        addBlock(dayOfWeek, 9);
                         break;
                     case 10:
-                        addBlock(dayOfWeek,10);
+                        addBlock(dayOfWeek, 10);
                         break;
                     case 11:
-                        addBlock(dayOfWeek,11);
+                        addBlock(dayOfWeek, 11);
                         break;
                     case 12:
-                        addBlock(dayOfWeek,12);
+                        addBlock(dayOfWeek, 12);
                         break;
                     case 13:
-                        addBlock(dayOfWeek,13);
+                        addBlock(dayOfWeek, 13);
                         break;
                     case 14:
-                        addBlock(dayOfWeek,14);
+                        addBlock(dayOfWeek, 14);
                         break;
                     case 15:
-                        addBlock(dayOfWeek,15);
+                        addBlock(dayOfWeek, 15);
                         break;
                     case 16:
-                        addBlock(dayOfWeek,16);
+                        addBlock(dayOfWeek, 16);
                         break;
                     case 17:
-                        addBlock(dayOfWeek,17);
+                        addBlock(dayOfWeek, 17);
                         break;
                     case 18:
-                        addBlock(dayOfWeek,18);
+                        addBlock(dayOfWeek, 18);
                         break;
                     case 19:
-                        addBlock(dayOfWeek,19);
+                        addBlock(dayOfWeek, 19);
                         break;
                     case 20:
-                        addBlock(dayOfWeek,20);
+                        addBlock(dayOfWeek, 20);
                         break;
                     case 21:
-                        addBlock(dayOfWeek,21);
+                        addBlock(dayOfWeek, 21);
                         break;
                     case 22:
-                        addBlock(dayOfWeek,22);
+                        addBlock(dayOfWeek, 22);
                         break;
                     case 23:
-                        addBlock(dayOfWeek,23);
+                        addBlock(dayOfWeek, 23);
                         break;
                 }
 
@@ -376,7 +378,7 @@ public class WeeklyActivity extends AppCompatActivity {
             //this will look like Monday "2:00-4:45" "5:00-6:00"
             //in the text file
         }
-        Log.d("write file","am i writing " + line[0]);
+        Log.d("write file", "am i writing " + line[0]);
         try {
 
             FileOutputStream writer = openFileOutput("time.txt", Context.MODE_ENABLE_WRITE_AHEAD_LOGGING);

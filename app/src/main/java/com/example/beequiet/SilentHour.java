@@ -53,7 +53,7 @@ public class SilentHour extends Service {
         intentSend = new Intent();
         intentSend.setAction(MY_ACTION);
         // change the time here should be time you want + 1:
-        timeLeft = 3;
+        timeLeft = 61;
         // ------------------------------
         mode = (AudioManager) this
                 .getSystemService(Context.AUDIO_SERVICE);
