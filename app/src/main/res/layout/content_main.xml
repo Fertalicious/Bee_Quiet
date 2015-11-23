@@ -45,6 +45,9 @@
         android:id="@+id/toggleButton"
         android:layout_marginTop="46dp"
         android:layout_below="@+id/buttonView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:enabled="true"
+        android:checked="true"
+        android:onClick="clickDeactivate" />
 
 </RelativeLayout>

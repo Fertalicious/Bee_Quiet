@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.content.Context;
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
-
+import android.widget.ToggleButton;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnHour;
     int timeLeft;
     MyReceiver myReceiver;
+    ToggleButton onOff;
     private class MyReceiver extends BroadcastReceiver{
 
         @Override
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Bee Quiet");
         btnHour = (Button) findViewById(R.id.buttonHour);
+        onOff = (ToggleButton) findViewById(R.id.toggleButton);
+        //onOff.setSelected(true);
 
     }
 
@@ -84,6 +87,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickDeactivate(View v){
         // Stop the effects of the app or vice versa
+        if(!onOff.isChecked()){
+            stopService();
+            btnHour.setText("QUIET FOR AN HOUR");
+            btnHour.setEnabled(false);
+        }
+        else
+        {
+            btnHour.setEnabled(true);
+        }
 
     }
 
