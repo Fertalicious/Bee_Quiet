@@ -25,7 +25,8 @@
         android:text="MONTHLY"
         android:id="@+id/buttonMonthly"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="clickMonth" />
 
     <Button
         android:layout_width="wrap_content"

@@ -15,7 +15,7 @@ public class ImportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_import);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(" ");
+        getSupportActionBar().setTitle("Bee Quiet");
         toolbar.setBackground(getDrawable(R.drawable.beequietbanner));
 
 

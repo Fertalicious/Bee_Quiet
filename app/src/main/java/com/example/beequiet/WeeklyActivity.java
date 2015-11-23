@@ -394,4 +394,14 @@ public class WeeklyActivity extends AppCompatActivity {
             Log.e("Exception", "File write failed: " + e.toString());
         }
     }
+
+    public void clickImport(View v){
+        Intent intent = new Intent(this, ImportActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickMonth(View v){
+        Intent intent = new Intent(this, ViewActivity.class);
+        startActivity(intent);
+    }
 }
