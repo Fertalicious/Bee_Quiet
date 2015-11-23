@@ -300,15 +300,12 @@ public class WeeklyActivity extends AppCompatActivity {
 
     //initialization of file
     public void checkFileExist(){
-       try{ FileInputStream fis = null;
-        fis = openFileInput("time.txt");
-       // File file = new File("time.txt");
-      // boolean exists = file.isFile();
-        if(fis == null)
-            writeDaytoFile();}
-       catch (Exception e){
+        try{
+            if(readFile().equals(""))
+                writeDaytoFile();}
+        catch (Exception e){
 
-       }
+        }
     }
 
     //write the days of the week to a file called time.txt, assuming
@@ -367,13 +364,13 @@ public class WeeklyActivity extends AppCompatActivity {
 
         String[] line = ret.split("\n");
 
-        Log.d("write file","am i writing " + line[0]);
+        Log.d("write file","am i writing " + ret);
         //loop through to find correct date
         for (int i = 0; i < line.length; i++) {
-            String token[] = line[i].split(" ");
+            String token[] = line[i].split("-");
 
             if(token[0].equals(dayOfWeek)) {
-                line[i] += " \"" + startTime + "-" + endTime + "\"";
+                line[i] += "-" + startTime + "-" + endTime;
                 Log.d("Correct week updated?",line[i]);
             }
             //this will look like Monday "2:00-4:45" "5:00-6:00"
