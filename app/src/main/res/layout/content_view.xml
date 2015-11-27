@@ -101,5 +101,5 @@
         android:layout_alignTop="@+id/tableLayout"
         android:layout_toRightOf="@+id/tableLayout"
         android:layout_toEndOf="@+id/tableLayout"
-        android:background="@color/material_deep_teal_500"/>
+        android:background="@color/material_deep_teal_500" />
 </RelativeLayout>
