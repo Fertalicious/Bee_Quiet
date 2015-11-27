@@ -7,8 +7,20 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class ViewActivity extends AppCompatActivity {
+
+    //Uses a listview to contain the hours
+    ListView lv;
+    ArrayList<String> option;
+    public static ArrayAdapter<String> adapter;
+
+    //flag for checking if start has been clicked
+    String dayOfWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +31,11 @@ public class ViewActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(" ");
         toolbar.setBackground(getDrawable(R.drawable.beequietbanner));
     }
+
+
+
+
+
 
     public void clickImport(View v){
         Intent intent = new Intent(this, ImportActivity.class);

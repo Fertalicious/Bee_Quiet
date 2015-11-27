@@ -13,7 +13,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WEEKLY"
+        android:text="Set"
         android:id="@+id/buttonWeekly"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -22,7 +22,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MONTHLY"
+        android:text="View"
         android:id="@+id/buttonMonthly"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

@@ -53,6 +53,7 @@ import java.io.BufferedWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
@@ -60,6 +61,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Locale;
+
 public class WeeklyActivity extends AppCompatActivity {
 
     //Uses a listview to contain the hours
@@ -84,7 +87,7 @@ public class WeeklyActivity extends AppCompatActivity {
         startTime = "";
         endTime = "";
         checkStart = false;
-        dayOfWeek = "Monday";//Need to access actual day of week, for now default to monday
+        dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis());//Need to access actual day of week, for now default to monday
 
         checkFileExist();
 

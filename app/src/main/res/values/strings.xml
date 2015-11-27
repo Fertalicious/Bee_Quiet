@@ -4,4 +4,7 @@
     <string name="title_activity_view">ViewActivity</string>
     <string name="title_activity_import">ImportActivity</string>
     <string name="title_activity_weekly">WeeklyActivity</string>
+    <string name="title_activity_view_weekly">ViewWeeklyActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

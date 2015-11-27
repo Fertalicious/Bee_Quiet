@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WEEKLY"
+        android:text="Set"
         android:id="@+id/buttonWeekly"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -22,10 +22,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MONTHLY"
+        android:text="View"
         android:id="@+id/buttonMonthly"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+         />
 
     <Button
         android:layout_width="wrap_content"
@@ -37,11 +38,68 @@
         android:layout_alignParentEnd="true"
         android:onClick="clickImport" />
 
-    <CalendarView
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height= "fill_parent"
+        android:stretchColumns="*"
+        android:layout_below="@+id/buttonWeekly"
+        android:layout_toStartOf="@+id/buttonMonthly"
+        android:layout_toLeftOf="@id/buttonMonthly"
+        android:layout_alignRight="@+id/buttonWeekly"
+        android:layout_alignEnd="@+id/buttonWeekly"
+        android:id="@+id/tableLayout">
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Mon" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/mondayButton" android:onClick="setDayOfWeek" android:tag="Monday" />
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Tues" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/tuesdayButton" android:onClick="setDayOfWeek" android:tag="Tuesday"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Wed" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/wednesdayButton" android:onClick="setDayOfWeek" android:tag="Wednesday" />
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Thur" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/thursdayButton" android:onClick="setDayOfWeek" android:tag="Thursday"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Fri" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/fridayButton" android:onClick="setDayOfWeek" android:tag="Friday"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Sat" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/saturdayButton" android:onClick="setDayOfWeek" android:tag="Saturday"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button android:text="Sun" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:id="@+id/sundayButton" android:onClick="setDayOfWeek" android:tag="Sunday"/>
+        </TableRow>
+    </TableLayout>
+
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/calendarView"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/listView"
+        android:layout_alignTop="@+id/tableLayout"
+        android:layout_toRightOf="@+id/tableLayout"
+        android:layout_toEndOf="@+id/tableLayout"
+        android:background="@color/material_deep_teal_500"/>
 </RelativeLayout>

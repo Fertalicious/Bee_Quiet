@@ -172,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
             else
                 myAudioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
         }
+
     }
 */
     public boolean checkSchedule() {
