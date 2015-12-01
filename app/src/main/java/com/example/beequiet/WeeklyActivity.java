@@ -243,17 +243,29 @@ public class WeeklyActivity extends AppCompatActivity {
         alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 //swap checkStart
-                if (!checkStart)
+                if (!checkStart) {
                     checkStart = true;
+
+                    //fixes the no input on 00 time
+                    if(startTime == "")
+                        startTime = hour + ":00";
+                }
                 else
                 {
                     checkStart = false;
+
+                    //fixes the no input on 00 time
+                    if(endTime == "")
+                        endTime = hour + ":00";
+
                     writeFile(readFile());
+
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, "Starting Time: " + startTime + " End Time:" + endTime, duration);
+                    toast.show();
                 }
-                Context context = getApplicationContext();
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, "Time Set: " + startTime + " " + endTime, duration);
-                toast.show();
+
             }
         });
 
@@ -276,7 +288,7 @@ public class WeeklyActivity extends AppCompatActivity {
 
 
         input.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int progress = 00;
+            int progress = 0;
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {

@@ -31,7 +31,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="IMPORT"
+        android:text="HELP"
         android:id="@+id/buttonImport"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
