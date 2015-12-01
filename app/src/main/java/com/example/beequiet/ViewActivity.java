@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.io.BufferedReader;
@@ -34,6 +35,14 @@ public class ViewActivity extends AppCompatActivity {
 
     //flag for checking if start has been clicked
     String dayOfWeek;
+    Button mondayButton;
+    Button tuesdayButton;
+    Button wednesdayButton;
+    Button thursdayButton;
+    Button fridayButton;
+    Button saturdayButton;
+    Button sundayButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +52,25 @@ public class ViewActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(" ");
         toolbar.setBackground(getDrawable(R.drawable.beequietbanner));
+
+        mondayButton = (Button) findViewById(R.id.mondayButton);
+        tuesdayButton = (Button) findViewById(R.id.tuesdayButton);
+        wednesdayButton = (Button) findViewById(R.id.wednesdayButton);
+        thursdayButton = (Button) findViewById(R.id.thursdayButton);
+        fridayButton = (Button) findViewById(R.id.fridayButton);
+        saturdayButton = (Button) findViewById(R.id.saturdayButton);
+        sundayButton = (Button) findViewById(R.id.sundayButton);
+
+        mondayButton.setBackgroundResource(android.R.drawable.btn_default);
+        tuesdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        wednesdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        thursdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        fridayButton.setBackgroundResource(android.R.drawable.btn_default);
+        saturdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        sundayButton.setBackgroundResource(android.R.drawable.btn_default);
+
+        Button viewButton = (Button) findViewById(R.id.buttonMonthly);
+        viewButton.setBackgroundColor(0xff009688);
 
         checkFileExist();
 
@@ -171,6 +199,14 @@ public class ViewActivity extends AppCompatActivity {
     {
         dayOfWeek = v.getTag().toString();// will return the string dayofWeek
         checkSchedule(dayOfWeek);
+        mondayButton.setBackgroundResource(android.R.drawable.btn_default);
+        tuesdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        wednesdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        thursdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        fridayButton.setBackgroundResource(android.R.drawable.btn_default);
+        saturdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        sundayButton.setBackgroundResource(android.R.drawable.btn_default);
+        v.setBackgroundColor(0xff009688);
     }
 
     public void clickImport(View v){

@@ -1,34 +1,22 @@
 package com.example.beequiet;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.IBinder;
+
 import java.util.Timer;
 import java.util.TimerTask;
-import android.media.AudioManager;
-import android.content.Context;
-import android.util.Log;
 
-public class SilentHour extends Service {
+public class WeekSilentService extends Service {
 
     Intent intentSend;
     final static String MY_ACTION = "MY_ACTION";
 
     AudioManager mode;
 
-    int timeLeft;
-    Timer timer = new Timer ();
-    TimerTask hourlyTask = new TimerTask () {
-        @Override
-        public void run () {
-            timeLeft--;
-            // update the button text
-            intentSend.putExtra("timeLeft", timeLeft);
-
-            sendBroadcast(intentSend);
-        }
-    };
-
+    Alarm alarm = new Alarm();
 
     /** indicates how to behave if the service is killed */
     int mStartMode;
@@ -48,17 +36,11 @@ public class SilentHour extends Service {
     /** The service is starting, due to a call to startService() */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // Start silent and the hour here
-        intentSend = new Intent();
-        intentSend.setAction(MY_ACTION);
-        // change the time here should be time you want + 1:
-        timeLeft = 61;
-        // ------------------------------
+        // Start the alarm
         mode = (AudioManager) this
                 .getSystemService(Context.AUDIO_SERVICE);
-        mode.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-        timer.schedule (hourlyTask, 0l, 1000*60);
 
+        alarm.SetAlarm(this);
         return mStartMode;
     }
 
@@ -83,8 +65,8 @@ public class SilentHour extends Service {
     /** Called when The service is no longer used and is being destroyed */
     @Override
     public void onDestroy() {
-        // Stop the hour here and reactivate button
-        timer.cancel();
+        // Stop the service, set phone to normal
+        alarm.CancelAlarm(this);
         mode.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
 
     }

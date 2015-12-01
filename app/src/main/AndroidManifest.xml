@@ -42,7 +42,17 @@
             android:enabled="true"
             android:exported="true" >
         </service>
+        <service
+            android:name=".WeekSilentService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
 
+        <receiver
+            android:name=".Alarm"
+            android:enabled="true"
+            android:exported="true" >
+        </receiver>
     </application>
 
 </manifest>
