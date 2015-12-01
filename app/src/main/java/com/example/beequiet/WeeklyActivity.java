@@ -249,6 +249,11 @@ public class WeeklyActivity extends AppCompatActivity {
                     //fixes the no input on 00 time
                     if(startTime == "")
                         startTime = hour + ":00";
+
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, "Starting Time: " + startTime, duration);
+                    toast.show();
                 }
                 else
                 {
@@ -264,6 +269,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(context, "Starting Time: " + startTime + " End Time:" + endTime, duration);
                     toast.show();
+                    startTime = endTime = "";
                 }
 
             }
