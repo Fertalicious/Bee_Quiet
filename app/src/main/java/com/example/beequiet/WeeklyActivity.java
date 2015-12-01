@@ -19,6 +19,7 @@ import android.content.res.Resources;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -133,81 +134,205 @@ public class WeeklyActivity extends AppCompatActivity {
     //for setting pressing time
     private void listClick() {
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            int mPosition = -1;
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
                         Log.d("Button Test", "12am is being pressed");
                         addBlock(dayOfWeek, 0);
+                        if(mPosition!=-1) {
+                            //reset color of previously pressed item to green
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        //set current item to gray
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //put value of currently selected item to mPosition.
+                        mPosition = position;
                         break;
                     case 1:
                         addBlock(dayOfWeek, 1);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 2:
                         addBlock(dayOfWeek, 2);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 3:
                         addBlock(dayOfWeek, 3);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 4:
                         addBlock(dayOfWeek, 4);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 5:
                         addBlock(dayOfWeek, 5);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 6:
                         addBlock(dayOfWeek, 6);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 7:
                         addBlock(dayOfWeek, 7);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 8:
                         addBlock(dayOfWeek, 8);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 9:
                         addBlock(dayOfWeek, 9);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 10:
                         addBlock(dayOfWeek, 10);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 11:
                         addBlock(dayOfWeek, 11);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 12:
                         addBlock(dayOfWeek, 12);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 13:
                         addBlock(dayOfWeek, 13);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 14:
                         addBlock(dayOfWeek, 14);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 15:
                         addBlock(dayOfWeek, 15);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 16:
                         addBlock(dayOfWeek, 16);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 17:
                         addBlock(dayOfWeek, 17);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 18:
                         addBlock(dayOfWeek, 18);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 19:
                         addBlock(dayOfWeek, 19);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 20:
                         addBlock(dayOfWeek, 20);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 21:
                         addBlock(dayOfWeek, 21);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 22:
                         addBlock(dayOfWeek, 22);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                     case 23:
                         addBlock(dayOfWeek, 23);
+                        if(mPosition!=-1) {
+                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                        }
+                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        mPosition = position;
                         break;
                 }
 
