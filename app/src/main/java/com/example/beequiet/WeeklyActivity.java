@@ -167,8 +167,8 @@ public class WeeklyActivity extends AppCompatActivity {
                         Log.d("Button Test", "12am is being pressed");
                         addBlock(dayOfWeek, 0);
                         if(mPosition!=-1) {
-                            //reset color of previously pressed item to green
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            //reset color of previously pressed item to teal
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         //set current item to gray
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
@@ -178,7 +178,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 1:
                         addBlock(dayOfWeek, 1);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -186,7 +186,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 2:
                         addBlock(dayOfWeek, 2);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -194,7 +194,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 3:
                         addBlock(dayOfWeek, 3);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -202,7 +202,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 4:
                         addBlock(dayOfWeek, 4);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -210,7 +210,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 5:
                         addBlock(dayOfWeek, 5);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -218,7 +218,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 6:
                         addBlock(dayOfWeek, 6);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -226,7 +226,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 7:
                         addBlock(dayOfWeek, 7);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -234,7 +234,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 8:
                         addBlock(dayOfWeek, 8);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -242,7 +242,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 9:
                         addBlock(dayOfWeek, 9);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -250,7 +250,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 10:
                         addBlock(dayOfWeek, 10);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -258,7 +258,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 11:
                         addBlock(dayOfWeek, 11);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -266,7 +266,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 12:
                         addBlock(dayOfWeek, 12);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -274,7 +274,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 13:
                         addBlock(dayOfWeek, 13);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -282,7 +282,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 14:
                         addBlock(dayOfWeek, 14);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -290,7 +290,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 15:
                         addBlock(dayOfWeek, 15);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -298,7 +298,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 16:
                         addBlock(dayOfWeek, 16);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -306,7 +306,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 17:
                         addBlock(dayOfWeek, 17);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -314,7 +314,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 18:
                         addBlock(dayOfWeek, 18);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -322,7 +322,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 19:
                         addBlock(dayOfWeek, 19);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -330,7 +330,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 20:
                         addBlock(dayOfWeek, 20);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -338,7 +338,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 21:
                         addBlock(dayOfWeek, 21);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -346,7 +346,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 22:
                         addBlock(dayOfWeek, 22);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
@@ -354,7 +354,7 @@ public class WeeklyActivity extends AppCompatActivity {
                     case 23:
                         addBlock(dayOfWeek, 23);
                         if(mPosition!=-1) {
-                            lv.getChildAt(mPosition).setBackgroundColor(Color.GREEN);
+                            lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
                         lv.getChildAt(position).setBackgroundColor(Color.GRAY);
                         mPosition = position;
