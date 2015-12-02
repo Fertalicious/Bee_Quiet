@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         //Register BroadcastReceiver
-        //to receive event from our service
+        //to receive event from the service
         myReceiver = new MyReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(SilentHour.MY_ACTION);
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             btnHour.setEnabled(true);
         }
         else {
-            btnHour.setText(Integer.toString(time));
+            btnHour.setText(Integer.toString(time) + " mins");
         }
     }
 
@@ -121,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             btnHour.setEnabled(true);
+            startService(new Intent(getBaseContext(), WeekSilentService.class));
         }
 
     }
@@ -133,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
     // Method to stop the service
     public void stopService() {
         stopService(new Intent(getBaseContext(), SilentHour.class));
+        stopService(new Intent(getBaseContext(), WeekSilentService.class));
     }
 
     @Override

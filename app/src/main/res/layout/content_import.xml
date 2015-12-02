@@ -10,22 +10,39 @@
     tools:showIn="@layout/activity_import" tools:context="com.example.beequiet.ImportActivity">
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="IMPORT FROM CALENDAR"
-        android:id="@+id/buttonCalendar"
-        android:layout_above="@+id/buttonSchedule"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="89dp"
-        android:onClick="clickCalendar" />
+        android:text="Clear All "
+        android:id="@+id/buttonClearSchedule"
+        android:onClick="clickExternal"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="IMPORT FROM EXTERNAL SCHEDULE"
-        android:id="@+id/buttonSchedule"
-        android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Help!"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="In order to input a schedule, press the &apos;set&apos; tab and long hold an hour, then select the desired minute using the scroll bar, doing it the first time will enter the starting time, and doing it again will input an end time"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:onClick="clickExternal" />
+        android:layout_marginTop="78dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="New Schedule?"
+        android:id="@+id/textView4"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

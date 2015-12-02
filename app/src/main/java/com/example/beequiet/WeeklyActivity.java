@@ -75,6 +75,13 @@ public class WeeklyActivity extends AppCompatActivity {
     boolean checkStart;
     String startTime, endTime;
     String dayOfWeek;
+    Button mondayButton;
+    Button tuesdayButton;
+    Button wednesdayButton;
+    Button thursdayButton;
+    Button fridayButton;
+    Button saturdayButton;
+    Button sundayButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +91,24 @@ public class WeeklyActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(" ");
         toolbar.setBackground(getDrawable(R.drawable.beequietbanner));
+        mondayButton = (Button) findViewById(R.id.mondayButton);
+        tuesdayButton = (Button) findViewById(R.id.tuesdayButton);
+        wednesdayButton = (Button) findViewById(R.id.wednesdayButton);
+        thursdayButton = (Button) findViewById(R.id.thursdayButton);
+        fridayButton = (Button) findViewById(R.id.fridayButton);
+        saturdayButton = (Button) findViewById(R.id.saturdayButton);
+        sundayButton = (Button) findViewById(R.id.sundayButton);
+
+        mondayButton.setBackgroundResource(android.R.drawable.btn_default);
+        tuesdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        wednesdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        thursdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        fridayButton.setBackgroundResource(android.R.drawable.btn_default);
+        saturdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        sundayButton.setBackgroundResource(android.R.drawable.btn_default);
+
+        Button setButton = (Button) findViewById(R.id.buttonWeekly);
+        setButton.setBackgroundColor(0xff009688);
 
         startTime = "";
         endTime = "";
@@ -345,6 +370,14 @@ public class WeeklyActivity extends AppCompatActivity {
     public void setDayOfWeek(View v)
     {
         dayOfWeek = v.getTag().toString();// will return the string dayofWeek
+        mondayButton.setBackgroundResource(android.R.drawable.btn_default);
+        tuesdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        wednesdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        thursdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        fridayButton.setBackgroundResource(android.R.drawable.btn_default);
+        saturdayButton.setBackgroundResource(android.R.drawable.btn_default);
+        sundayButton.setBackgroundResource(android.R.drawable.btn_default);
+        v.setBackgroundColor(0xff009688);
     }
 
     //Will activate when clicked for the first time, or after end block
@@ -368,17 +401,35 @@ public class WeeklyActivity extends AppCompatActivity {
         alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 //swap checkStart
-                if (!checkStart)
+                if (!checkStart) {
                     checkStart = true;
+
+                    //fixes the no input on 00 time
+                    if(startTime == "")
+                        startTime = hour + ":00";
+
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, "Starting Time: " + startTime, duration);
+                    toast.show();
+                }
                 else
                 {
                     checkStart = false;
+
+                    //fixes the no input on 00 time
+                    if(endTime == "")
+                        endTime = hour + ":00";
+
                     writeFile(readFile());
+
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, "Starting Time: " + startTime + " End Time:" + endTime, duration);
+                    toast.show();
+                    startTime = endTime = "";
                 }
-                Context context = getApplicationContext();
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, "Time Set: " + startTime + " " + endTime, duration);
-                toast.show();
+
             }
         });
 
@@ -401,7 +452,7 @@ public class WeeklyActivity extends AppCompatActivity {
 
 
         input.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int progress = 00;
+            int progress = 0;
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
