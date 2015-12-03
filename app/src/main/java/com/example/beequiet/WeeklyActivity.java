@@ -126,7 +126,7 @@ public class WeeklyActivity extends AppCompatActivity {
     }
     private void addOption() {
         //not sure what to do for 15 , 30 , 45
-        option.add(0, "12");
+        option.add(0, "12a.m.");
         option.add(1, "1");
         option.add(2, "2");
         option.add(3, "3");
@@ -138,7 +138,7 @@ public class WeeklyActivity extends AppCompatActivity {
         option.add(9, "9");
         option.add(10, "10");
         option.add(11, "11");
-        option.add(12, "12");
+        option.add(12, "12p.m.");
         option.add(13, "1");
         option.add(14, "2");
         option.add(15, "3");
@@ -244,120 +244,120 @@ public class WeeklyActivity extends AppCompatActivity {
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 10:
                         addBlock(dayOfWeek, 10);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 11:
                         addBlock(dayOfWeek, 11);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                       // lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                       // mPosition = position;
                         break;
                     case 12:
                         addBlock(dayOfWeek, 12);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 13:
                         addBlock(dayOfWeek, 13);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 14:
                         addBlock(dayOfWeek, 14);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 15:
                         addBlock(dayOfWeek, 15);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 16:
                         addBlock(dayOfWeek, 16);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 17:
                         addBlock(dayOfWeek, 17);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 18:
                         addBlock(dayOfWeek, 18);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 19:
                         addBlock(dayOfWeek, 19);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 20:
                         addBlock(dayOfWeek, 20);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 21:
                         addBlock(dayOfWeek, 21);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 22:
                         addBlock(dayOfWeek, 22);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                     case 23:
                         addBlock(dayOfWeek, 23);
                         if(mPosition!=-1) {
                             lv.getChildAt(mPosition).setBackgroundColor(0xff009688);
                         }
-                        lv.getChildAt(position).setBackgroundColor(Color.GRAY);
-                        mPosition = position;
+                        //lv.getChildAt(position).setBackgroundColor(Color.GRAY);
+                        //mPosition = position;
                         break;
                 }
 
@@ -408,6 +408,10 @@ public class WeeklyActivity extends AppCompatActivity {
                     if(startTime == "")
                         startTime = hour + ":00";
 
+                    //check if its 1:00 or a single hour
+                    if(hour < 10)
+                        startTime = "0" + startTime;
+
                     Context context = getApplicationContext();
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(context, "Starting Time: " + startTime, duration);
@@ -420,6 +424,10 @@ public class WeeklyActivity extends AppCompatActivity {
                     //fixes the no input on 00 time
                     if(endTime == "")
                         endTime = hour + ":00";
+
+                    //check if its 1:00 or a single hour
+                    if(hour < 10)
+                        endTime = "0" + endTime;
 
                     writeFile(readFile());
 
@@ -457,22 +465,45 @@ public class WeeklyActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
-                alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
+                if(progress < 10) {
+                        alertDialog.setMessage(dayOfWeek + " " + hour + " : 0" + progress);
+                }
+                else {
+                        alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
+                }
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
+                if(progress < 10) {
+                        alertDialog.setMessage(dayOfWeek + " " + hour + " : 0" + progress);
+                }
+                else {
+                        alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
+                }
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
+                if(progress < 10) {
+                        alertDialog.setMessage(dayOfWeek + " " + hour + " : 0" + progress);
+                }
+                else {
+                        alertDialog.setMessage(dayOfWeek + " " + hour + " : " + progress);
+                }
 
-                if (!checkStart)
-                    startTime = hour + ":" + progress;
-                else
-                    endTime = hour + ":" + progress;
+                if (!checkStart) {
+                    if (progress < 10)
+                        startTime = hour + ":0" + progress;
+                    else
+                        startTime = hour + ":" + progress;
+                }
+                else {
+                    if (progress < 10)
+                        endTime = hour + ":0" + progress;
+                    else
+                        endTime = hour + ":" + progress;
+                }
                 //Toast.makeText(getApplicationContext(), "Stopped tracking seekbar: " + startTime + " " + endTime, Toast.LENGTH_SHORT).show();
             }
         });
