@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
             btnHour.setEnabled(true);
             startService(new Intent(getBaseContext(), WeekSilentService.class));
         }
-
     }
 
     // Method to start the service

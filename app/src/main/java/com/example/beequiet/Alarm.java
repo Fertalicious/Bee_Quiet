@@ -47,8 +47,8 @@ public class Alarm extends BroadcastReceiver {
         //---------------------------------------------------------------------------------------------------------------------------
         // Set these based on file contents, I(Kyle) was unable to reliably get these from the file so i just scrapped the mess I had
         //---------------------------------------------------------------------------------------------------------------------------
-        int hour = 21;
-        int minute = 48;
+        int hour = 16;
+        int minute = 17;
         cal.add(Calendar.DAY_OF_WEEK, cur_cal.get(Calendar.DAY_OF_WEEK)); // Set day of week, monday,tuesday, etc, based on file
         cal.set(Calendar.HOUR_OF_DAY, hour);  // change hour based on file
         cal.set(Calendar.MINUTE, minute);  // change minute based on file
@@ -62,10 +62,10 @@ public class Alarm extends BroadcastReceiver {
         //-------------------------------------------
 
         Intent intent = new Intent(context, Alarm.class);
-        PendingIntent pintent = PendingIntent.getService(context, 0, intent, 0);
+        PendingIntent pintent = PendingIntent.getBroadcast(context, 0, intent, 0);
         AlarmManager am =(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pintent);
-        Log.d("WeeklyActivityService", "ALARM SET");
+        Log.d("Alarm.java", "ALARM SET");
     }
 
     public void CancelAlarm(Context context)
