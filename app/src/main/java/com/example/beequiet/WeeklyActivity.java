@@ -461,7 +461,7 @@ public class WeeklyActivity extends AppCompatActivity {
 
         input.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
-
+            //change
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
