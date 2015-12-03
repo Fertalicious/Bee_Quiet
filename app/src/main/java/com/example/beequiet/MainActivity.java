@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnHour;
     int timeLeft;
     MyReceiver myReceiver;
+    MyReceiver myReceiver2;
     ToggleButton onOff;
     private AudioManager myAudioManager;
 
@@ -78,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(SilentHour.MY_ACTION);
         registerReceiver(myReceiver, intentFilter);
+
+        myReceiver2 = new MyReceiver();
+        IntentFilter intentFilter2 = new IntentFilter();
+        intentFilter2.addAction(WeekSilentService.MY_ACTION);
+        registerReceiver(myReceiver2, intentFilter);
         super.onStart();
     }
 
@@ -139,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         unregisterReceiver(myReceiver);
+        unregisterReceiver(myReceiver2);
         super.onStop();
     }
 

@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.os.IBinder;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class WeekSilentService extends Service {
 
     Intent intentSend;
@@ -41,6 +38,7 @@ public class WeekSilentService extends Service {
                 .getSystemService(Context.AUDIO_SERVICE);
 
         alarm.SetAlarm(this);
+        //alarm.SetAlarm2(this);
         return mStartMode;
     }
 
