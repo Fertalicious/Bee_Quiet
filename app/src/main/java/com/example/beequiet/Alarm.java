@@ -47,6 +47,22 @@ public class Alarm extends BroadcastReceiver {
         //---------------------------------------------------------------------------------------------------------------------------
         // Set these based on file contents, I(Kyle) was unable to reliably get these from the file so i just scrapped the mess I had
         //---------------------------------------------------------------------------------------------------------------------------
+
+        /*
+        String[] timeArray;
+        String nextTime = "";
+
+        nextTime = stack.pop()
+
+            timeArray = timeStart.split(":");
+            try {
+                hour = Integer.parseInt(timeStartArray[0]);
+            } catch(NumberFormatException nfe) {}
+            try {
+                minute = Integer.parseInt(timeStartArray[1]);
+            } catch(NumberFormatException nfe) {}
+        */
+
         int hour = 16;
         int minute = 17;
         cal.add(Calendar.DAY_OF_WEEK, cur_cal.get(Calendar.DAY_OF_WEEK)); // Set day of week, monday,tuesday, etc, based on file
